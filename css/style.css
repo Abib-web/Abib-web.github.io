@@ -1,0 +1,231 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    color: aliceblue;
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+}
+body{
+    background-color: #09022E;
+    max-width: 1200px;
+    margin: auto;
+}
+main{
+    box-sizing: border-box;
+}
+header{
+    display: flex;
+}
+a{
+    cursor: pointer;
+}
+header h1{
+    padding-top: 15px;
+    padding-left: 10px;
+}
+div.icon-site{
+    justify-content: center;
+    display: flex;
+    position: absolute;
+    top: 7%;
+    text-align: center;
+    align-content: center;
+}
+div.icon-image{
+    background-color: aliceblue;
+    border-radius: 50%;
+    max-width: 50%;
+    align-items: center;
+    text-align: center;
+}
+header nav {
+    display: inline;
+    position: relative;
+    left: 30%;
+    margin: 90px;
+}
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+header nav ul li{
+      display: inline;
+      padding: 20px;
+      border-radius: 40px;
+      border: 1px solid #dceec5;
+  }
+
+header nav ul li:hover{
+    border-left: 3px solid rgb(28, 201, 186);
+    border-right: 3px solid rgb(162, 174, 180);
+}
+
+/* Section main partie slider*/
+.slideshow{
+    height: 650px;
+}
+.slideshow li{
+    list-style-type: none;
+    padding: 10px;
+    margin: 10px;
+    margin-left: -40px;
+    list-style-position:inside;
+    border-radius: 40px;
+    border: 1px solid rgb(220, 235, 17);
+}
+
+#slideshow > div {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+  }
+.fill{
+    margin-left: 50px;
+    width: 500px ;
+    height: 600px;
+   position: absolute;
+   top: 0%;
+   left: 80%;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.fill img{
+    max-width:100%;
+    height:100%;
+ }
+.text-slider{
+    max-width: 500px;
+    padding-right: 100px ;
+}
+
+.liens{
+    background-color: #4CAF50; /* Green */
+    border-radius: 40px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+/* About me*/
+.about-me{
+    display: flex;
+    margin-top: 100px;
+}
+.img-about-me{
+    background-color: #190b5f;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 50px;
+    z-index: 10;
+    box-shadow: 10px 10px;
+}
+.img-presentation{
+    margin-left: 50px;
+    width: 500px;
+    padding: 50px;
+    z-index: 10;
+}
+
+/* Parcours*/
+.career{
+    display: grid;
+}
+.career div {
+    margin: 20px;
+    width: 400px;
+    height: 300px;
+    display: inline-block;
+    background: rgb(214, 212, 214);
+    border: 1px solid black;
+    transform: skewX(-10deg);
+    box-shadow: 2px 2px;
+    }
+.career-1{
+    position: relative;
+    top: 0%;
+    left: 0%;
+}
+.career-1-title{
+    color: rgb(230, 164, 42);
+    text-align: center;
+    margin: 5px;
+    font-size: 40px
+}
+.career-1-paragraph{
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+    color: black;
+    font-size: 26px;
+}
+.career-2{
+    position: relative;
+    top: 25%;
+    left: 25%;
+}
+.career-2-title{
+    color: rgb(230, 164, 42);
+    text-align: center;
+    margin: 5px;
+    font-size: 26px;
+}
+.career-2-paragraph{
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+    color: black;
+    font-size: 25px;
+}
+.career-3{
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+.career-3-title{
+    color: rgb(230, 164, 42);
+    text-align: center;
+    margin: 5px;
+    font-size: 26px;
+}
+.career-3-paragraph{
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+    color: black;
+    font-size: 25px;
+}
+.title-parcours{
+    color: rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    font-size: 50px;
+    position: absolute;
+    top: 170%;
+    right: 25%;
+}
+.title-parcours-2{
+    color: rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    font-size: 50px;
+    position: absolute;
+    top: 250%;
+    left: 20%;
+}
+
+/* Competences*/
+.competences{
+    margin-top: 200px;
+    align-items: center;
+}
+.competences h1{
+    text-align: center;
+}
+.progress-bar{
+    display: flex;
+}
+progress::-webkit-progress-value {
+    background: green;
+}
