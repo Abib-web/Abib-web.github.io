@@ -149,6 +149,7 @@ header nav ul li:hover{
 /* Parcours*/
 .career{
     display: grid;
+    position: relative;
 }
 .career div {
     margin: 20px;
@@ -217,18 +218,21 @@ header nav ul li:hover{
 .title-parcours{
     color: rgba(255, 255, 255, 0.1);
     z-index: 10;
-    font-size: 50px;
+    font-size: 40px;
     position: absolute;
-    top: 170%;
-    right: 25%;
+    top: 10%;
+    left: 45%;
+    margin-left: 10px;
+    font-weight: 900;
 }
 .title-parcours-2{
     color: rgba(255, 255, 255, 0.1);
     z-index: 10;
-    font-size: 50px;
+    font-size: 40px;
     position: absolute;
-    top: 250%;
-    left: 20%;
+    top: 90%;
+    left: 0%;
+    font-weight: 900;
 }
 
 /* Competences*/
@@ -240,7 +244,6 @@ header nav ul li:hover{
     text-align: center;
 }
 .progresse-bar{
-    display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
