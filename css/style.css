@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,7 +8,7 @@
 }
 body{
     background-color: #09022E;
-    max-width: 1200px;
+    max-width: 950px;
     margin: auto;
 }
 main{
@@ -59,6 +61,18 @@ header nav ul li:hover{
     border-left: 3px solid rgb(28, 201, 186);
     border-right: 3px solid rgb(162, 174, 180);
 }
+/**/
+.img-presentation h1{
+    font-family: 'Brush Script MT', cursive;
+    font-weight: 500;
+    font-size: 35px;
+}
+.img-presentation span{
+    font-family: 'Amatic SC', cursive;
+}
+.img-presentation li{
+    text-decoration: none;
+}
 
 /* Section main partie slider*/
 .slideshow{
@@ -76,8 +90,7 @@ header nav ul li:hover{
 
 #slideshow > div {
     position: absolute;
-    top: 30%;
-    left: 25%;
+
   }
 .fill{
     margin-left: 50px;
@@ -109,6 +122,9 @@ header nav ul li:hover{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+.liens a{
+    color: #dceec5;
 }
 /* About me*/
 .about-me{
@@ -148,19 +164,20 @@ header nav ul li:hover{
     position: relative;
     top: 0%;
     left: 0%;
+    overflow: hidden;
 }
 .career-1-title{
     color: rgb(230, 164, 42);
     text-align: center;
-    margin: 5px;
+    margin: 0px;
     font-size: 40px
 }
 .career-1-paragraph{
     text-align: center;
-    margin: 5px;
-    padding: 10px;
+    padding: 0px;
     color: black;
     font-size: 26px;
+    margin: 0px;
 }
 .career-2{
     position: relative;
@@ -175,7 +192,6 @@ header nav ul li:hover{
 }
 .career-2-paragraph{
     text-align: center;
-    margin: 5px;
     padding: 10px;
     color: black;
     font-size: 25px;
@@ -223,9 +239,34 @@ header nav ul li:hover{
 .competences h1{
     text-align: center;
 }
-.progress-bar{
+.progresse-bar{
     display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
 }
 progress::-webkit-progress-value {
     background: green;
+}
+
+.Python{
+    height: 20px;
+    width: 20%;
+    background-color: #dceec5;
+}
+.percent-Python{
+    background-color: orange;
+    width: 78%;
+    height: 20px;
+}
+.c-lan{
+    height: 20px;
+    width: 20%;
+    background-color: #dceec5;
+}
+.percent-c-lan{
+    background-color: orange;
+    width: 70%;
+    height: 20px;
 }
