@@ -139,17 +139,60 @@ header nav ul li:hover{
     z-index: 10;
     box-shadow: 10px 10px;
 }
+
+.title-underline {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid rgb(250, 247, 247); 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+    margin-top: 50px;
+ } 
+ 
+ .title-underline span { 
+     background:#09022E; 
+     padding:0 10px; 
+ }
+.img-presentation h1{
+    font-size: 50px;
+}
 .img-presentation{
     margin-left: 50px;
     width: 500px;
     padding: 50px;
     z-index: 10;
 }
+@counter-style same {
+    system: cyclic;
+    symbols: "\1F44D";
+    suffix: " ";
+  }
+.img-presentation ul li{
+    list-style-type: same;
+    font-size: 26px;
+}
+@counter-style terre {
+    system: cyclic;
+    symbols: "\01F310";
+    suffix: " ";
+  }
+.img-presentation ul .terre{
+    list-style-type: terre;
+}
+  @counter-style ville {
+    system: cyclic;
+    symbols: "\01F3D9 \FE0F";
+    suffix: " ";
+  }
 
+.img-presentation ul .ville{
+    list-style-type: ville;
+}
 /* Parcours*/
 .career{
     display: grid;
     position: relative;
+    padding-top: 50px;
 }
 .career div {
     margin: 20px;
@@ -220,8 +263,8 @@ header nav ul li:hover{
     z-index: 10;
     font-size: 40px;
     position: absolute;
-    top: 10%;
-    left: 45%;
+    top: 20%;
+    left: 47%;
     margin-left: 10px;
     font-weight: 900;
 }
@@ -236,6 +279,25 @@ header nav ul li:hover{
 }
 
 /* Competences*/
+.title-competences-div .title-competences{
+    text-align: center;
+    font-size:30px; font-weight:300; color:#222; letter-spacing:1px;
+    text-transform: uppercase;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-template-rows: 27px 0;
+    grid-gap: 20px;
+    align-items: center;
+    color: aliceblue;
+}
+.title-competences-div h1:after,.title-competences-div h1:before {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid #e9eff1;
+    border-top: 1px solid #e9eff1;
+    height: 5px;
+  background-color:#09022E;
+}
 .competences{
     margin-top: 200px;
     align-items: center;
@@ -248,28 +310,15 @@ header nav ul li:hover{
     align-items: center;
     justify-content: center;
     padding: 50px;
+
 }
-progress::-webkit-progress-value {
-    background: green;
+.col {
+    padding-bottom:  50px;
+}
+.progresse-bar h3{
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    width: 0;
 }
 
-.Python{
-    height: 20px;
-    width: 20%;
-    background-color: #dceec5;
-}
-.percent-Python{
-    background-color: orange;
-    width: 78%;
-    height: 20px;
-}
-.c-lan{
-    height: 20px;
-    width: 20%;
-    background-color: #dceec5;
-}
-.percent-c-lan{
-    background-color: orange;
-    width: 70%;
-    height: 20px;
-}
