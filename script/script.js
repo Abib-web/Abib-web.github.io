@@ -55,3 +55,12 @@ setInterval(function() {
     .end()
     .appendTo('#slideshow');
 }, 3000);
+
+
+$( "#btn-modal" ).click(function() {
+  $('#modal').show();
+});
+
+$( "#close-modal" ).click(function() {
+  $('#modal').hide();
+});

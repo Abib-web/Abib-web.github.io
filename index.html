@@ -1,9 +1,23 @@
+<?php
+
+if(!empty($_POST)){
+    extract($_POST);
+    print_r($_POST);
+}
+//=====Création du header de l'e-mail.
+ $header = "From: no-reply@gmail.com\n";
+ $header .= "MIME-version: 1.0\n";
+ $header .= "Content-type: text/html; charset=utf-8\n";
+ $header .= "Content-Transfer-ncoding: 8bit";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="#">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -20,14 +34,14 @@
         </div>
         <nav>
             <ul>
-                <li><a>Accueil</a></li>
-                <li><a>Competences</a></li>
-                <li><a>Projets</a></li>
-                <li><a>A propos</a></li>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#competences">Competences</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#about">A propos</a></li>
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="about">
         <div class="slideshow" id="slideshow">
             <div class="slider-me">
                 <div class="text-slider">
@@ -195,7 +209,7 @@
         </div>
         <h1 class="title-parcours-2">Mon Parcour scolaire</h1>
     </div>
-    <div class="competences">
+    <div class="competences" id="competences">
         <div class="title-competences-div">
             <h1 class="title-competences">Mes performances</h1>
         </div>
@@ -246,46 +260,97 @@
               </div>
           </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog">
+    <div class="contact">
+        <p>Je suis disponible pour toutes vos préoccupations.</p>
+        <h4  id="btn-modal" class="btn primary bg-info">
+            Contactez-moi
+        </h4>
+    </div>
+
+    <div class="modal" id="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
+              <h5 class="modal-title" style="color: #7A198E">Envoyez-moi un mail</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+        <form action="post" method="POST" enctype="multipart/form-data"></form>
             <div class="modal-body">
-              <p>Modal body text goes here.</p>
+                <input type="email" class="form-control" id="exampleFormControlInput1"  name="nameSend" placeholder="Emtrez votre Nom et prenoms"><br>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Entrez votre adresse email" size=”19″ name="emailSend"><br>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Entrez le sujet" size=”19″ name="sujetSend"><br>
+                <br> <textarea class="form-control" id="exampleFormControlTextarea1" name="textSend" rows=”10″ cols=”20″ placeholder="Entrez votre message"></textarea>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Envoyer</button>
+              <button id="close-modal" type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
+        </form>
           </div>
+        </div>
+      </div>
+
+      <div class="projet" id="projets">
+        <h1> Quelques projets </h1>
+        <div>
+
         </div>
       </div>
     </main>
-    <div class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
+
+      <footer>
+        <div class="footer-about">
+            <h1>A propos de moi</h1>
+            <ul>
+                <li>
+                    <a href="" class="btn btn-primary" style="background-color: #3b5998;" href="#!" role="button">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/oumar-habiboullah-kone-747b3b18a/" class="btn btn-primary" style="background-color: #0082ca;" href="#!" role="button">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Abib-web/" class="btn btn-primary" style="background-color: #333333;" href="#!" role="button">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
-      </div>
-    
+        <div class="footer-services">
+            <h1>Services</h1>
+            <ul>
+                <li>Developpement front-end</li>
+                <li>Developpement back-end</li>
+                <li>Developpement software</li>
+                <li>Developpement systeme embarque</li>
+                <li>Electronicien </li>
+                <li>Pentester</li>
+            </ul>
+        </div>
+        <div class="footer-liens">
+            <h1>Liens</h1>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#competences">Competences</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#about">A propos</a></li>
+            </ul>
+        </div>
+        <div class="footer-question">
+            <h1>Des Question ?</h1>
+            <ul>
+            <li>
+                <a href="mailto:oumar.kone@uqtr.ca"><img src="images/send.png" alt=""></a>
+            </li>
+            </ul>
+        </div>
+      </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -322,3 +322,57 @@ header nav ul li:hover{
     width: 0;
 }
 
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+}
+
+/* Contact*/
+.contact{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+#btn-modal{
+    border-radius: 20px;
+}
+
+/* FOOTER*/
+footer{
+    display: flex;
+}
+footer div{
+    margin: 20px;
+}
+footer h1{
+    font-weight: 600;
+    font-size: 40px;
+}
+
+li{
+    list-style-type: none;
+}
+.footer-about ul{
+    display: flex;
+    margin-left: -50px;
+}
+.footer-about ul li{
+    margin: 5px;
+}
+.footer-question img{
+    width: 30px;
+}
+.footer-services ul li{
+    list-style-type: square;
+}
+.footer-liens ul li{
+    list-style-type: disclosure-closed;
+}
