@@ -90,15 +90,19 @@
         <p>
             Si le fichier ne s'affiche pas correctement, vous pouvez le télécharger en cliquant sur le lien ci-dessous :
         </p>
-        <a href="https://raw.githubusercontent.com/ton_utilisateur/ton_depot/main/diagramme_gantt.xlsx" target="_blank" class="download-link">Télécharger le fichier Excel : Diagramme de Gantt</a>
+        <a href="https://raw.githubusercontent.com/Abib-web/Abib-web.github.io/main/planification(Vert).csv" target="_blank" class="download-link">Télécharger le fichier Excel : Diagramme de Gantt</a>
     </div>
 
     <script>
-        // Remplace 'URL_DU_FICHIER_EXCEL' par le lien direct vers ton fichier Excel sur GitHub
         const fileURL = 'https://raw.githubusercontent.com/Abib-web/Abib-web.github.io/main/planification(Vert).csv';
 
         fetch(fileURL)
-            .then(response => response.arrayBuffer())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erreur lors du chargement du fichier');
+                }
+                return response.arrayBuffer();
+            })
             .then(data => {
                 const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });
 
@@ -111,7 +115,7 @@
                 document.getElementById('excelData').innerHTML = html;
             })
             .catch(error => {
-                document.getElementById('excelData').innerHTML = '<p>Erreur lors du chargement du fichier Excel.</p>';
+                document.getElementById('excelData').innerHTML = `<p>Erreur lors du chargement du fichier Excel : ${error.message}</p>`;
                 console.error('Erreur lors du chargement du fichier Excel:', error);
             });
     </script>
