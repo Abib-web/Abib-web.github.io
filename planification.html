@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagramme de Gantt - Surveillance de la Qualité de l'Air</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -37,17 +38,43 @@
             margin-bottom: 20px;
         }
 
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
+        .info-box {
+            background-color: #e9f7ff;
+            border-left: 5px solid #007BFF;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
         }
 
-        iframe:hover {
-            transform: scale(1.02);
+        .info-box h2 {
+            margin: 0;
+            font-size: 1.3em;
+            color: #0056b3;
+        }
+
+        .info-box p {
+            margin: 10px 0 0;
+            font-size: 1em;
+            color: #555;
+        }
+
+        #excelData {
+            overflow-x: auto;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .upload-container input[type="file"] {
+            display: block;
+            margin: 10px auto;
         }
 
         .download-link {
@@ -68,26 +95,6 @@
             background-color: #0056b3;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-
-        .info-box {
-            background-color: #e9f7ff;
-            border-left: 5px solid #007BFF;
-            padding: 10px 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
-
-        .info-box h2 {
-            margin: 0;
-            font-size: 1.3em;
-            color: #0056b3;
-        }
-
-        .info-box p {
-            margin: 10px 0 0;
-            font-size: 1em;
-            color: #555;
-        }
     </style>
 </head>
 <body>
@@ -105,13 +112,41 @@
             Consultez le fichier Excel ci-dessous pour suivre les étapes du projet et les délais associés. Le diagramme de Gantt vous permet de visualiser les tâches, les durées et les dépendances entre les différentes phases.
         </p>
 
-        <!-- Remplacer 'URL_DU_FICHIER_EXCEL' par le lien vers ton fichier Excel -->
-        <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://github.com/Abib-web/Abib-web.github.io/blob/b7dc8a9ff7b5cf0339a0d1eaee60ea32f70534e8/planification(Vert).csv" frameborder="0" allowfullscreen></iframe>
+        <div class="upload-container">
+            <label for="upload">Choisissez un fichier Excel à afficher :</label>
+            <input type="file" id="upload" accept=".xlsx, .xls" />
+        </div>
+
+        <div id="excelData">
+            <!-- Le contenu du fichier Excel sera affiché ici -->
+        </div>
 
         <p>
             Si le fichier ne s'affiche pas correctement, vous pouvez le télécharger en cliquant sur le lien ci-dessous :
         </p>
         <a href="https://uqtrsspt-my.sharepoint.com/:x:/g/personal/oumar_kone_uqtr_ca/EbaIaPsQSYtOvc8XxkEt3VwBQ8YpAlbxCw4AqOdn1pgZ_Q?e=jXA4pD" target="_blank" class="download-link">Télécharger le fichier Excel : Diagramme de Gantt</a>
     </div>
+
+    <script>
+        document.getElementById('upload').addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, { type: 'array' });
+
+                // Prend la première feuille
+                const firstSheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[firstSheetName];
+
+                // Convertir la feuille en HTML
+                const html = XLSX.utils.sheet_to_html(worksheet);
+                document.getElementById('excelData').innerHTML = html;
+            };
+
+            reader.readAsArrayBuffer(file);
+        });
+    </script>
 </body>
 </html>
