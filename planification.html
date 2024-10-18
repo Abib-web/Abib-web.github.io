@@ -66,35 +66,6 @@
             padding: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        .upload-container {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .upload-container input[type="file"] {
-            display: block;
-            margin: 10px auto;
-        }
-
-        .download-link {
-            display: block;
-            background-color: #007BFF;
-            color: #ffffff;
-            text-align: center;
-            padding: 12px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: background-color 0.3s, box-shadow 0.3s;
-            margin-top: 20px;
-        }
-
-        .download-link:hover {
-            background-color: #0056b3;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
     </style>
 </head>
 <body>
@@ -112,11 +83,6 @@
             Consultez le fichier Excel ci-dessous pour suivre les étapes du projet et les délais associés. Le diagramme de Gantt vous permet de visualiser les tâches, les durées et les dépendances entre les différentes phases.
         </p>
 
-        <div class="upload-container">
-            <label for="upload">Choisissez un fichier Excel à afficher :</label>
-            <input type="file" id="upload" accept=".xlsx, .xls" />
-        </div>
-
         <div id="excelData">
             <!-- Le contenu du fichier Excel sera affiché ici -->
         </div>
@@ -124,17 +90,17 @@
         <p>
             Si le fichier ne s'affiche pas correctement, vous pouvez le télécharger en cliquant sur le lien ci-dessous :
         </p>
-        <a href="https://uqtrsspt-my.sharepoint.com/:x:/g/personal/oumar_kone_uqtr_ca/EbaIaPsQSYtOvc8XxkEt3VwBQ8YpAlbxCw4AqOdn1pgZ_Q?e=jXA4pD" target="_blank" class="download-link">Télécharger le fichier Excel : Diagramme de Gantt</a>
+        <a href="https://raw.githubusercontent.com/ton_utilisateur/ton_depot/main/diagramme_gantt.xlsx" target="_blank" class="download-link">Télécharger le fichier Excel : Diagramme de Gantt</a>
     </div>
 
     <script>
-        document.getElementById('upload').addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            const reader = new FileReader();
+        // Remplace 'URL_DU_FICHIER_EXCEL' par le lien direct vers ton fichier Excel sur GitHub
+        const fileURL = 'https://raw.githubusercontent.com/Abib-web/Abib-web.github.io/main/planification(Vert).csv';
 
-            reader.onload = (e) => {
-                const data = new Uint8Array(e.target.result);
-                const workbook = XLSX.read(data, { type: 'array' });
+        fetch(fileURL)
+            .then(response => response.arrayBuffer())
+            .then(data => {
+                const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });
 
                 // Prend la première feuille
                 const firstSheetName = workbook.SheetNames[0];
@@ -143,10 +109,11 @@
                 // Convertir la feuille en HTML
                 const html = XLSX.utils.sheet_to_html(worksheet);
                 document.getElementById('excelData').innerHTML = html;
-            };
-
-            reader.readAsArrayBuffer(file);
-        });
+            })
+            .catch(error => {
+                document.getElementById('excelData').innerHTML = '<p>Erreur lors du chargement du fichier Excel.</p>';
+                console.error('Erreur lors du chargement du fichier Excel:', error);
+            });
     </script>
 </body>
 </html>
